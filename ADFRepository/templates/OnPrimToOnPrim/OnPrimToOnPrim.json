@@ -1,0 +1,491 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name"
+		},
+		"OnPrimSourceSQLLinkedService": {
+			"type": "string"
+		},
+		"OnPrimDestinationSQLLinkedService": {
+			"type": "string"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy data1",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "SqlServerSource",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "SqlServerSink"
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "OfficeID",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "OfficeID",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeName",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OfficeName",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ClientID",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "ClientID",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeUID",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "OfficeUID",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "ParentOfficeID",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "ParentOfficeID",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "PCholderID",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "PCholderID",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeDB",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "OfficeDB",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeTINID",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "OfficeTINID",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "TechConnectID",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "TechConnectID",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeBrand",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OfficeBrand",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeStreet1",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OfficeStreet1",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeStreet2",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OfficeStreet2",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeCity",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OfficeCity",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeState",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OfficeState",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeZip",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OfficeZip",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeMainPhone",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OfficeMainPhone",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeMainPhoneExt",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OfficeMainPhoneExt",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeActiveFlag",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "OfficeActiveFlag",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeAliasName",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OfficeAliasName",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeCode",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OfficeCode",
+											"type": "String"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "SourceSqlServerDataSet",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DestinationSqlServerDataSet",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/SourceSqlServerDataSet')]",
+				"[concat(variables('factoryId'), '/datasets/DestinationSqlServerDataSet')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceSqlServerDataSet')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "[parameters('OnPrimSourceSQLLinkedService')]",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "OfficeID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "OfficeName",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ClientID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "OfficeUID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ParentOfficeID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "PCholderID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "OfficeDB",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "OfficeTINID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TechConnectID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "OfficeBrand",
+						"type": "nvarchar"
+					},
+					{
+						"name": "OfficeStreet1",
+						"type": "nvarchar"
+					},
+					{
+						"name": "OfficeStreet2",
+						"type": "nvarchar"
+					},
+					{
+						"name": "OfficeCity",
+						"type": "nvarchar"
+					},
+					{
+						"name": "OfficeState",
+						"type": "nvarchar"
+					},
+					{
+						"name": "OfficeZip",
+						"type": "nvarchar"
+					},
+					{
+						"name": "OfficeMainPhone",
+						"type": "nvarchar"
+					},
+					{
+						"name": "OfficeMainPhoneExt",
+						"type": "nvarchar"
+					},
+					{
+						"name": "OfficeActiveFlag",
+						"type": "bit"
+					},
+					{
+						"name": "OfficeAliasName",
+						"type": "nvarchar"
+					},
+					{
+						"name": "OfficeCode",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "Office"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DestinationSqlServerDataSet')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "[parameters('OnPrimDestinationSQLLinkedService')]",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "OfficeID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "OfficeName",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ClientID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "OfficeUID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ParentOfficeID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "PCholderID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "OfficeDB",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "OfficeTINID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TechConnectID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "OfficeBrand",
+						"type": "nvarchar"
+					},
+					{
+						"name": "OfficeStreet1",
+						"type": "nvarchar"
+					},
+					{
+						"name": "OfficeStreet2",
+						"type": "nvarchar"
+					},
+					{
+						"name": "OfficeCity",
+						"type": "nvarchar"
+					},
+					{
+						"name": "OfficeState",
+						"type": "nvarchar"
+					},
+					{
+						"name": "OfficeZip",
+						"type": "nvarchar"
+					},
+					{
+						"name": "OfficeMainPhone",
+						"type": "nvarchar"
+					},
+					{
+						"name": "OfficeMainPhoneExt",
+						"type": "nvarchar"
+					},
+					{
+						"name": "OfficeActiveFlag",
+						"type": "bit"
+					},
+					{
+						"name": "OfficeAliasName",
+						"type": "nvarchar"
+					},
+					{
+						"name": "OfficeCode",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "office_stg"
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
