@@ -1,0 +1,249 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "SqlServerSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "OfficeID",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "OfficeID",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "OfficeName",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OfficeName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ClientID",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "ClientID",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "OfficeUID",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "OfficeUID",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "ParentOfficeID",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "ParentOfficeID",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "PCholderID",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "PCholderID",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "OfficeDB",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "OfficeDB",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "OfficeTINID",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "OfficeTINID",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "TechConnectID",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "TechConnectID",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "OfficeBrand",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OfficeBrand",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OfficeStreet1",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OfficeStreet1",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OfficeStreet2",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OfficeStreet2",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OfficeCity",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OfficeCity",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OfficeState",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OfficeState",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OfficeZip",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OfficeZip",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OfficeMainPhone",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OfficeMainPhone",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OfficeMainPhoneExt",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OfficeMainPhoneExt",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OfficeActiveFlag",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "OfficeActiveFlag",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "OfficeAliasName",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OfficeAliasName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OfficeCode",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OfficeCode",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceSqlServerDataSet",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationSqlServerDataSet",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

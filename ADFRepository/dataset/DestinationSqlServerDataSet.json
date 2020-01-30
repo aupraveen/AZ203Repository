@@ -1,0 +1,106 @@
+{
+	"name": "DestinationSqlServerDataSet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "OnPrimDestinationSQLLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "OfficeID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "OfficeName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ClientID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "OfficeUID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ParentOfficeID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "PCholderID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "OfficeDB",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "OfficeTINID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TechConnectID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "OfficeBrand",
+				"type": "nvarchar"
+			},
+			{
+				"name": "OfficeStreet1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "OfficeStreet2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "OfficeCity",
+				"type": "nvarchar"
+			},
+			{
+				"name": "OfficeState",
+				"type": "nvarchar"
+			},
+			{
+				"name": "OfficeZip",
+				"type": "nvarchar"
+			},
+			{
+				"name": "OfficeMainPhone",
+				"type": "nvarchar"
+			},
+			{
+				"name": "OfficeMainPhoneExt",
+				"type": "nvarchar"
+			},
+			{
+				"name": "OfficeActiveFlag",
+				"type": "bit"
+			},
+			{
+				"name": "OfficeAliasName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "OfficeCode",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "office_stg"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

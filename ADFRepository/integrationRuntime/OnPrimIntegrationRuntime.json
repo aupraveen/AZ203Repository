@@ -1,0 +1,6 @@
+{
+	"name": "OnPrimIntegrationRuntime",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}

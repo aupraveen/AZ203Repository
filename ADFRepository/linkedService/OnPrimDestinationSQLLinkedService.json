@@ -1,0 +1,17 @@
+{
+	"name": "OnPrimDestinationSQLLinkedService",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=True;data source=SRINHYDEUAT01;initial catalog=EBP_QA",
+			"userName": "praveena@ispace.com",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIzYjgyNTliYi00YzQ1LTRjZjQtYWVhMS0yYzljYTYwMmQxYmUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "OnPrimIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

@@ -1,0 +1,24 @@
+{
+	"name": "OnPrimLoadHourly",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pipeline1",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Hour",
+				"interval": 1,
+				"startTime": "2020-01-30T15:14:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}
