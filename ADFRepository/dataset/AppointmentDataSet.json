@@ -1,0 +1,12 @@
+{
+	"name": "AppointmentDataSet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "OnPrimSourceSQLLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	}
+}
