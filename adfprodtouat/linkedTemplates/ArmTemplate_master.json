@@ -1,0 +1,105 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adfprodtouat"
+		},
+		"DestinationAPPTLinkedService_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'DestinationAPPTLinkedService'"
+		},
+		"DestinationAPPTLinkedService_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'DestinationAPPTLinkedService'"
+		},
+		"OnPrimDestinationSQLLinkedService_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'OnPrimDestinationSQLLinkedService'"
+		},
+		"OnPrimDestinationSQLLinkedService_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'OnPrimDestinationSQLLinkedService'"
+		},
+		"OnPrimSourceSQLLinkedService_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'OnPrimSourceSQLLinkedService'"
+		},
+		"OnPrimSourceSQLLinkedService_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'OnPrimSourceSQLLinkedService'"
+		},
+		"DestinationAPPTLinkedService_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "praveena@ispace.com"
+		},
+		"OnPrimDestinationSQLLinkedService_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "praveena@ispace.com"
+		},
+		"OnPrimSourceSQLLinkedService_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "praveena@ispace.com"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"DestinationAPPTLinkedService_connectionString": {
+						"value": "[parameters('DestinationAPPTLinkedService_connectionString')]"
+					},
+					"DestinationAPPTLinkedService_password": {
+						"value": "[parameters('DestinationAPPTLinkedService_password')]"
+					},
+					"OnPrimDestinationSQLLinkedService_connectionString": {
+						"value": "[parameters('OnPrimDestinationSQLLinkedService_connectionString')]"
+					},
+					"OnPrimDestinationSQLLinkedService_password": {
+						"value": "[parameters('OnPrimDestinationSQLLinkedService_password')]"
+					},
+					"OnPrimSourceSQLLinkedService_connectionString": {
+						"value": "[parameters('OnPrimSourceSQLLinkedService_connectionString')]"
+					},
+					"OnPrimSourceSQLLinkedService_password": {
+						"value": "[parameters('OnPrimSourceSQLLinkedService_password')]"
+					},
+					"DestinationAPPTLinkedService_properties_typeProperties_userName": {
+						"value": "[parameters('DestinationAPPTLinkedService_properties_typeProperties_userName')]"
+					},
+					"OnPrimDestinationSQLLinkedService_properties_typeProperties_userName": {
+						"value": "[parameters('OnPrimDestinationSQLLinkedService_properties_typeProperties_userName')]"
+					},
+					"OnPrimSourceSQLLinkedService_properties_typeProperties_userName": {
+						"value": "[parameters('OnPrimSourceSQLLinkedService_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

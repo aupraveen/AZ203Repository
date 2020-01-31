@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfprodtouat"
+		},
+		"DestinationAPPTLinkedService_connectionString": {
+			"value": ""
+		},
+		"DestinationAPPTLinkedService_password": {
+			"value": ""
+		},
+		"OnPrimDestinationSQLLinkedService_connectionString": {
+			"value": ""
+		},
+		"OnPrimDestinationSQLLinkedService_password": {
+			"value": ""
+		},
+		"OnPrimSourceSQLLinkedService_connectionString": {
+			"value": ""
+		},
+		"OnPrimSourceSQLLinkedService_password": {
+			"value": ""
+		},
+		"DestinationAPPTLinkedService_properties_typeProperties_userName": {
+			"value": "praveena@ispace.com"
+		},
+		"OnPrimDestinationSQLLinkedService_properties_typeProperties_userName": {
+			"value": "praveena@ispace.com"
+		},
+		"OnPrimSourceSQLLinkedService_properties_typeProperties_userName": {
+			"value": "praveena@ispace.com"
+		}
+	}
+}
