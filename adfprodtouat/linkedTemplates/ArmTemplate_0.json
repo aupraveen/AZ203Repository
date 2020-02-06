@@ -4773,7 +4773,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/OnPrimLoadHourly')]",
+			"name": "[concat(parameters('factoryName'), '/LoadUATToAzureHourly')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -4793,8 +4793,7 @@
 					"recurrence": {
 						"frequency": "Hour",
 						"interval": 1,
-						"startTime": "2020-02-06T15:10:00.000Z",
-						"endTime": "2020-02-07T15:10:00.000Z",
+						"startTime": "2020-02-06T09:50:00.000Z",
 						"timeZone": "UTC"
 					}
 				}
