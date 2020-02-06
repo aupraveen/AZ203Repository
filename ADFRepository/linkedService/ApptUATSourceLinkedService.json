@@ -1,0 +1,17 @@
+{
+	"name": "ApptUATSourceLinkedService",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=True;data source=SRINHYDEUAT01;initial catalog=EBP_PROD",
+			"userName": "praveena@ispace.com",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI4ZjA4YjAzZS02ZGUwLTQ0ZGYtYTAzYi01OWJlNWYyMzllM2EiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "OnPrimIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
