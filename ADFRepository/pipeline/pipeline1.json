@@ -268,7 +268,7 @@
 						"queryTimeout": "02:00:00"
 					},
 					"sink": {
-						"type": "SqlServerSink"
+						"type": "AzureSqlSink"
 					},
 					"enableStaging": false,
 					"translator": {
@@ -1993,49 +1993,19 @@
 									"name": "IsBotLoad",
 									"type": "Boolean"
 								}
-							},
-							{
-								"source": {
-									"name": "FAX",
-									"type": "Boolean"
-								},
-								"sink": {
-									"name": "FAX",
-									"type": "Boolean"
-								}
-							},
-							{
-								"source": {
-									"name": "Call",
-									"type": "Boolean"
-								},
-								"sink": {
-									"name": "Call",
-									"type": "Boolean"
-								}
-							},
-							{
-								"source": {
-									"name": "Online",
-									"type": "Boolean"
-								},
-								"sink": {
-									"name": "Online",
-									"type": "Boolean"
-								}
 							}
 						]
 					}
 				},
 				"inputs": [
 					{
-						"referenceName": "AppointmentDataSet",
+						"referenceName": "ApptTableFromUAT",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DestinationAPPTDataSet",
+						"referenceName": "AzureApptDestDataSet",
 						"type": "DatasetReference"
 					}
 				]

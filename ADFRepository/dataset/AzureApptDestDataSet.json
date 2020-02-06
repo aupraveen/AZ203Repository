@@ -1,0 +1,757 @@
+{
+	"name": "AzureApptDestDataSet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DestAzureSqlDatabaseLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ClientID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "MAC_Address",
+				"type": "varchar"
+			},
+			{
+				"name": "Parent_Appointment_SID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DataSource",
+				"type": "tinyint",
+				"precision": 3
+			},
+			{
+				"name": "ApptID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ApptDB",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "AppointmentDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "AppointmentHour",
+				"type": "smallint",
+				"precision": 5
+			},
+			{
+				"name": "AppointmentMinute",
+				"type": "smallint",
+				"precision": 5
+			},
+			{
+				"name": "AppointmentType",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "AppointmentReason",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AppointmentNote",
+				"type": "text"
+			},
+			{
+				"name": "PatientID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "PatientDB",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Patient_LastName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Patient_FirstName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Patient_Mi",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Patient_DOB",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Patient_Gender",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Patient_RelationshipToInsured",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Patient_LastVisitDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "Insured_LastName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Insured_FirstName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Insured_Mi",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Insured_DOB",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Insured_ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Insured_SubscriberID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ProviderUID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ProviderID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ProviderDB",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Provider_NPI",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Provider_LastName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Provider_FirstName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Provider_Mi",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Provider_PracticeTitle",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Provider_Medicaid",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Provider_MedicareNum",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsuranceCompany_Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsuranceCompany_Phone",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsuranceCompany_Phone_Ext",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsuranceCompany_Fax",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsuranceCompany_Street1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsuranceCompany_Street2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsuranceCompany_City",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsuranceCompany_State",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsuranceCompany_Zip",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsuranceCompany_Contact",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsuranceCompany_Rep",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsurancePlanID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsurancePlanDB",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsurancePlan_Employer",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsurancePlan_GroupName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsurancePlan_GroupNumber",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsurancePlan_Policy_Local",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsurancePlan_FeeScheduleID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsurancePlan_FeeScheduleDB",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsurancePlan_PayerID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsuranceType",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsurancePlan_Network",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsurancePlan_FeeScheduleName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsurancePlan_Dental_Medical",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsurancePlan_SourceOfPayment",
+				"type": "nvarchar"
+			},
+			{
+				"name": "COOB",
+				"type": "nvarchar"
+			},
+			{
+				"name": "COOB_BirthdayRule",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TimelyFilingLimit",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DependentAge",
+				"type": "nvarchar"
+			},
+			{
+				"name": "StudentAge",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Pay_Prep_Seat",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Calendar",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Effective_Date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Expiration_Date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Calendar_Year_or_Other",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CoverageType",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IndividualDeductible",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IndividualDeductible_Applies_P",
+				"type": "bit"
+			},
+			{
+				"name": "IndividualDeductible_Applies_B",
+				"type": "bit"
+			},
+			{
+				"name": "IndividualDeductible_Applies_M",
+				"type": "bit"
+			},
+			{
+				"name": "IndividualDeductible_Met",
+				"type": "bit"
+			},
+			{
+				"name": "IndividualDeductible_Met_Amount",
+				"type": "nvarchar"
+			},
+			{
+				"name": "FamilyDeductible",
+				"type": "nvarchar"
+			},
+			{
+				"name": "FamilyDeductible_Met",
+				"type": "nvarchar"
+			},
+			{
+				"name": "FamilyDeductible_Met_Amount",
+				"type": "nvarchar"
+			},
+			{
+				"name": "YearlyMaxAmount",
+				"type": "nvarchar"
+			},
+			{
+				"name": "FamilyMaxAmount",
+				"type": "nvarchar"
+			},
+			{
+				"name": "WaitPeriods",
+				"type": "nvarchar"
+			},
+			{
+				"name": "RenewalRolling_Or_Contract",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PriorExtractionsCovered",
+				"type": "nvarchar"
+			},
+			{
+				"name": "FMX_Counts_As_BTW",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PreAuthRequiredOrSuggested",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PreAuthRequiredOrSuggested_Amount",
+				"type": "nvarchar"
+			},
+			{
+				"name": "YearlyUsed",
+				"type": "nvarchar"
+			},
+			{
+				"name": "FamilyUsed",
+				"type": "nvarchar"
+			},
+			{
+				"name": "YearlyRemaining",
+				"type": "nvarchar"
+			},
+			{
+				"name": "FamilyRemaining",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Eligibility_Note",
+				"type": "nvarchar"
+			},
+			{
+				"name": "WebFormTypeID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Eligibility",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "InsertDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "UpdateDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "InsertPortalUserID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "UpdatePortalUserID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "QAComments",
+				"type": "xml"
+			},
+			{
+				"name": "OPERATORYID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TemplateName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LastCheckedDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "InsuredID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsuredDB",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PatInsuredID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PatInsuredDB",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IndividualDeductible_Applies_Prev",
+				"type": "bit"
+			},
+			{
+				"name": "IndividualDeductible_Applies_Diag",
+				"type": "bit"
+			},
+			{
+				"name": "FamilyDeductible_Applies_Prev",
+				"type": "bit"
+			},
+			{
+				"name": "FamilyDeductible_Applies_Diag",
+				"type": "bit"
+			},
+			{
+				"name": "RescheduleIndicator",
+				"type": "bit"
+			},
+			{
+				"name": "SendToClient",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "Provider_Specialty",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Provider_SpecialtyDB",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Provider_SpecialyID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "FinancialClass",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "FinancialClass_Desc",
+				"type": "nvarchar"
+			},
+			{
+				"name": "FinancialClass_Other",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "AppointmentID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "UserId",
+				"type": "nvarchar"
+			},
+			{
+				"name": "OfficeID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "QueueID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "StatusTypeID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ActionTypeID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "NoteText",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SubsCovered",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SubsAgeLimit",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SpouseCovered",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SpouseAgeLimit",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PaymentMethod",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InitialInstall",
+				"type": "nvarchar"
+			},
+			{
+				"name": "WorkInProg",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BenefitsUsedAmount",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ReferralRequired",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ExtractionsBilledToMedicalFirst",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsCoverageOrder",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "IspaceAppointmentInsertDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "IspaceAppointmentUpdateDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "AppointmentSubmittedDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "AppointmentQaDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "AppointmentWritebackDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "AppointmentChangeReason",
+				"type": "nvarchar"
+			},
+			{
+				"name": "WriteBackStatus",
+				"type": "varchar"
+			},
+			{
+				"name": "WriteBackMessage",
+				"type": "varchar"
+			},
+			{
+				"name": "WriteBackLogFile",
+				"type": "varchar"
+			},
+			{
+				"name": "isExcludeToWriteBack",
+				"type": "bit"
+			},
+			{
+				"name": "Patient_Street",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Patient_Street2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Patient_City",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Patient_State",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Patient_Zip",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Patient_Phone",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Patient_Phone_Ext",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Patient_Phone_Work",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Patient_Phone_Other",
+				"type": "nvarchar"
+			},
+			{
+				"name": "pri_sec_ter_qua",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Client_InsertDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "Client_UpdatedDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "Client_InsuranceCompany",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LastCheckDateTime",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "Provider_IsNonPerson",
+				"type": "bit"
+			},
+			{
+				"name": "ClientStatus",
+				"type": "bit"
+			},
+			{
+				"name": "OrthoCoveredByGenDentist",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IsInvisaligncovered",
+				"type": "nvarchar"
+			},
+			{
+				"name": "WriteBack_AppointmentNote",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AppointmentWriteBackStatus",
+				"type": "nvarchar"
+			},
+			{
+				"name": "isOrphanAppointment",
+				"type": "bit"
+			},
+			{
+				"name": "PristinePlan_MasterID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "IsBotLoad",
+				"type": "bit"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Appointment"
+		}
+	}
+}
