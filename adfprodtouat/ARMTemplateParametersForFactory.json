@@ -5,6 +5,15 @@
 		"factoryName": {
 			"value": "adfprodtouat"
 		},
+		"ApptUATSourceLinkedService_connectionString": {
+			"value": ""
+		},
+		"ApptUATSourceLinkedService_password": {
+			"value": ""
+		},
+		"DestAzureSqlDatabaseLinkedService_connectionString": {
+			"value": ""
+		},
 		"DestinationAPPTLinkedService_connectionString": {
 			"value": ""
 		},
@@ -23,14 +32,8 @@
 		"OnPrimSourceSQLLinkedService_password": {
 			"value": ""
 		},
-		"ApptUATSourceLinkedService_connectionString": {
-			"value": ""
-		},
-		"ApptUATSourceLinkedService_password": {
-			"value": ""
-		},
-		"DestAzureSqlDatabaseLinkedService_connectionString": {
-			"value": ""
+		"ApptUATSourceLinkedService_properties_typeProperties_userName": {
+			"value": "praveena@ispace.com"
 		},
 		"DestinationAPPTLinkedService_properties_typeProperties_userName": {
 			"value": "praveena@ispace.com"
@@ -39,9 +42,6 @@
 			"value": "praveena@ispace.com"
 		},
 		"OnPrimSourceSQLLinkedService_properties_typeProperties_userName": {
-			"value": "praveena@ispace.com"
-		},
-		"ApptUATSourceLinkedService_properties_typeProperties_userName": {
 			"value": "praveena@ispace.com"
 		}
 	}

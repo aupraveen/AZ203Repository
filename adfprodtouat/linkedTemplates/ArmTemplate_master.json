@@ -7,6 +7,18 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adfprodtouat"
 		},
+		"ApptUATSourceLinkedService_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ApptUATSourceLinkedService'"
+		},
+		"ApptUATSourceLinkedService_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ApptUATSourceLinkedService'"
+		},
+		"DestAzureSqlDatabaseLinkedService_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'DestAzureSqlDatabaseLinkedService'"
+		},
 		"DestinationAPPTLinkedService_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'DestinationAPPTLinkedService'"
@@ -31,17 +43,9 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'OnPrimSourceSQLLinkedService'"
 		},
-		"ApptUATSourceLinkedService_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'ApptUATSourceLinkedService'"
-		},
-		"ApptUATSourceLinkedService_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'ApptUATSourceLinkedService'"
-		},
-		"DestAzureSqlDatabaseLinkedService_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'DestAzureSqlDatabaseLinkedService'"
+		"ApptUATSourceLinkedService_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "praveena@ispace.com"
 		},
 		"DestinationAPPTLinkedService_properties_typeProperties_userName": {
 			"type": "string",
@@ -52,10 +56,6 @@
 			"defaultValue": "praveena@ispace.com"
 		},
 		"OnPrimSourceSQLLinkedService_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "praveena@ispace.com"
-		},
-		"ApptUATSourceLinkedService_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "praveena@ispace.com"
 		},
@@ -86,6 +86,15 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"ApptUATSourceLinkedService_connectionString": {
+						"value": "[parameters('ApptUATSourceLinkedService_connectionString')]"
+					},
+					"ApptUATSourceLinkedService_password": {
+						"value": "[parameters('ApptUATSourceLinkedService_password')]"
+					},
+					"DestAzureSqlDatabaseLinkedService_connectionString": {
+						"value": "[parameters('DestAzureSqlDatabaseLinkedService_connectionString')]"
+					},
 					"DestinationAPPTLinkedService_connectionString": {
 						"value": "[parameters('DestinationAPPTLinkedService_connectionString')]"
 					},
@@ -104,14 +113,8 @@
 					"OnPrimSourceSQLLinkedService_password": {
 						"value": "[parameters('OnPrimSourceSQLLinkedService_password')]"
 					},
-					"ApptUATSourceLinkedService_connectionString": {
-						"value": "[parameters('ApptUATSourceLinkedService_connectionString')]"
-					},
-					"ApptUATSourceLinkedService_password": {
-						"value": "[parameters('ApptUATSourceLinkedService_password')]"
-					},
-					"DestAzureSqlDatabaseLinkedService_connectionString": {
-						"value": "[parameters('DestAzureSqlDatabaseLinkedService_connectionString')]"
+					"ApptUATSourceLinkedService_properties_typeProperties_userName": {
+						"value": "[parameters('ApptUATSourceLinkedService_properties_typeProperties_userName')]"
 					},
 					"DestinationAPPTLinkedService_properties_typeProperties_userName": {
 						"value": "[parameters('DestinationAPPTLinkedService_properties_typeProperties_userName')]"
@@ -121,9 +124,6 @@
 					},
 					"OnPrimSourceSQLLinkedService_properties_typeProperties_userName": {
 						"value": "[parameters('OnPrimSourceSQLLinkedService_properties_typeProperties_userName')]"
-					},
-					"ApptUATSourceLinkedService_properties_typeProperties_userName": {
-						"value": "[parameters('ApptUATSourceLinkedService_properties_typeProperties_userName')]"
 					}
 				}
 			},
