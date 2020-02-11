@@ -247,7 +247,7 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Copy data1",
+						"activity": "Copy data From Text File To Database",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -2000,6 +2000,1394 @@
 				"inputs": [
 					{
 						"referenceName": "ApptTableFromUAT",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureApptDestDataSet",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy data From Text File To Database",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Copy data1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "FileServerReadSettings",
+							"recursive": true,
+							"wildcardFolderPath": "E:\\ADF\\Source",
+							"wildcardFileName": "*.txt",
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"sink": {
+									"name": "ClientID",
+									"type": "Int32"
+								}
+							},
+							{
+								"sink": {
+									"name": "MAC_Address",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "Parent_Appointment_SID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DataSource",
+									"type": "String"
+								},
+								"sink": {
+									"name": "DataSource",
+									"type": "Byte"
+								}
+							},
+							{
+								"source": {
+									"name": "APPTID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ApptID",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "APPTDB",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ApptDB",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "AppointmentDate",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AppointmentDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "AppointmentHour",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AppointmentHour",
+									"type": "Int16"
+								}
+							},
+							{
+								"source": {
+									"name": "AppointmentMinute",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AppointmentMinute",
+									"type": "Int16"
+								}
+							},
+							{
+								"source": {
+									"name": "AppointmentType",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AppointmentType",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "AppointmentReason",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AppointmentReason",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AppointmentNote",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AppointmentNote",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PatientID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PatientID",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "PatientDB",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PatientDB",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "Patient_LastName",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Patient_LastName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Patient_FirstName",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Patient_FirstName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Patient_Mi",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Patient_Mi",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Patient_DOB",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Patient_DOB",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Patient_Gender",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Patient_Gender",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Patient_RelationshipToInsured",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Patient_RelationshipToInsured",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Patient_LastVisitDate",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Patient_LastVisitDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "Insured_LastName",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Insured_LastName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Insured_FirstName",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Insured_FirstName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Insured_Mi",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Insured_Mi",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Insured_DOB",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Insured_DOB",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Insured_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Insured_ID",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "Insured_SubscriberID",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "ProviderUID",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "ProviderID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ProviderID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ProviderDB",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ProviderDB",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "Provider_NPI",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Provider_NPI",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "Provider_LastName",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Provider_LastName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Provider_FirstName",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Provider_FirstName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Provider_Mi",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Provider_Mi",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "Provider_PracticeTitle",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Provider_Medicaid",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Provider_Medicaid",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Provider_MedicareNum",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Provider_MedicareNum",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "InsuranceCompany_Name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "InsuranceCompany_Phone",
+									"type": "String"
+								},
+								"sink": {
+									"name": "InsuranceCompany_Phone",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "InsuranceCompany_Phone_Ext",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "InsuranceCompany_Fax",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "InsuranceCompany_Street1",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "InsuranceCompany_Street2",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "InsuranceCompany_City",
+									"type": "String"
+								},
+								"sink": {
+									"name": "InsuranceCompany_City",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "InsuranceCompany_State",
+									"type": "String"
+								},
+								"sink": {
+									"name": "InsuranceCompany_State",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "InsuranceCompany_Zip",
+									"type": "String"
+								},
+								"sink": {
+									"name": "InsuranceCompany_Zip",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "InsuranceCompany_Contact",
+									"type": "String"
+								},
+								"sink": {
+									"name": "InsuranceCompany_Contact",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "InsuranceCompany_Rep",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "InsurancePlanID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "InsurancePlanID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "InsurancePlanDB",
+									"type": "String"
+								},
+								"sink": {
+									"name": "InsurancePlanDB",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "InsurancePlan_Employer",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "InsurancePlan_GroupName",
+									"type": "String"
+								},
+								"sink": {
+									"name": "InsurancePlan_GroupName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "InsurancePlan_GroupNumber",
+									"type": "String"
+								},
+								"sink": {
+									"name": "InsurancePlan_GroupNumber",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "InsurancePlan_Policy_Local",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "InsurancePlan_FeeScheduleID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "InsurancePlan_FeeScheduleID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "InsurancePlan_FeeScheduleDB",
+									"type": "String"
+								},
+								"sink": {
+									"name": "InsurancePlan_FeeScheduleDB",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "InsurancePlan_PayerID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "InsuranceType",
+									"type": "String"
+								},
+								"sink": {
+									"name": "InsuranceType",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "InsurancePlan_Network",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "InsurancePlan_FeeScheduleName",
+									"type": "String"
+								},
+								"sink": {
+									"name": "InsurancePlan_FeeScheduleName",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "InsurancePlan_Dental_Medical",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "InsurancePlan_SourceOfPayment",
+									"type": "String"
+								},
+								"sink": {
+									"name": "InsurancePlan_SourceOfPayment",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "COOB",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "COOB_BirthdayRule",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TimelyFilingLimit",
+									"type": "String"
+								},
+								"sink": {
+									"name": "TimelyFilingLimit",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "DependentAge",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "StudentAge",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "Pay_Prep_Seat",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "Calendar",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Effective_Date",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Effective_Date",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "Expiration_Date",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "Calendar_Year_or_Other",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "CoverageType",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "IndividualDeductible",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "IndividualDeductible_Applies_P",
+									"type": "Boolean"
+								}
+							},
+							{
+								"sink": {
+									"name": "IndividualDeductible_Applies_B",
+									"type": "Boolean"
+								}
+							},
+							{
+								"sink": {
+									"name": "IndividualDeductible_Applies_M",
+									"type": "Boolean"
+								}
+							},
+							{
+								"sink": {
+									"name": "IndividualDeductible_Met",
+									"type": "Boolean"
+								}
+							},
+							{
+								"sink": {
+									"name": "IndividualDeductible_Met_Amount",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "FamilyDeductible",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "FamilyDeductible_Met",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "FamilyDeductible_Met_Amount",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "YearlyMaxAmount",
+									"type": "String"
+								},
+								"sink": {
+									"name": "YearlyMaxAmount",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "FamilyMaxAmount",
+									"type": "String"
+								},
+								"sink": {
+									"name": "FamilyMaxAmount",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "WaitPeriods",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "RenewalRolling_Or_Contract",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "PriorExtractionsCovered",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "FMX_Counts_As_BTW",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "PreAuthRequiredOrSuggested",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "PreAuthRequiredOrSuggested_Amount",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "YearlyUsed",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "FamilyUsed",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "YearlyRemaining",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "FamilyRemaining",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "Eligibility_Note",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "WebFormTypeID",
+									"type": "Int32"
+								}
+							},
+							{
+								"sink": {
+									"name": "Eligibility",
+									"type": "Int32"
+								}
+							},
+							{
+								"sink": {
+									"name": "InsertDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"sink": {
+									"name": "UpdateDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"sink": {
+									"name": "InsertPortalUserID",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "UpdatePortalUserID",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "QAComments",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OperatoryID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OPERATORYID",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "TemplateName",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "LastCheckedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "InsuredID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "InsuredID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "InsuredDB",
+									"type": "String"
+								},
+								"sink": {
+									"name": "InsuredDB",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PatInsuredID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PatInsuredID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PatInsuredDB",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PatInsuredDB",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "IndividualDeductible_Applies_Prev",
+									"type": "Boolean"
+								}
+							},
+							{
+								"sink": {
+									"name": "IndividualDeductible_Applies_Diag",
+									"type": "Boolean"
+								}
+							},
+							{
+								"sink": {
+									"name": "FamilyDeductible_Applies_Prev",
+									"type": "Boolean"
+								}
+							},
+							{
+								"sink": {
+									"name": "FamilyDeductible_Applies_Diag",
+									"type": "Boolean"
+								}
+							},
+							{
+								"sink": {
+									"name": "RescheduleIndicator",
+									"type": "Boolean"
+								}
+							},
+							{
+								"sink": {
+									"name": "SendToClient",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "Provider_Specialty",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Provider_Specialty",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Provider_SpecialtyDB",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Provider_SpecialtyDB",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Provider_SpecialyID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Provider_SpecialyID",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "FinancialClass",
+									"type": "String"
+								},
+								"sink": {
+									"name": "FinancialClass",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "FinancialClass_Desc",
+									"type": "String"
+								},
+								"sink": {
+									"name": "FinancialClass_Desc",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "FinancialClass_Other",
+									"type": "String"
+								},
+								"sink": {
+									"name": "FinancialClass_Other",
+									"type": "Int32"
+								}
+							},
+							{
+								"sink": {
+									"name": "AppointmentID",
+									"type": "Int32"
+								}
+							},
+							{
+								"sink": {
+									"name": "UserId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OfficeID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OfficeID",
+									"type": "Int32"
+								}
+							},
+							{
+								"sink": {
+									"name": "QueueID",
+									"type": "Int32"
+								}
+							},
+							{
+								"sink": {
+									"name": "StatusTypeID",
+									"type": "Int32"
+								}
+							},
+							{
+								"sink": {
+									"name": "ActionTypeID",
+									"type": "Int32"
+								}
+							},
+							{
+								"sink": {
+									"name": "NoteText",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SubsCovered",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SubsAgeLimit",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SpouseCovered",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "SpouseAgeLimit",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "PaymentMethod",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "InitialInstall",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "WorkInProg",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "BenefitsUsedAmount",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "ReferralRequired",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "ExtractionsBilledToMedicalFirst",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "InsCoverageOrder",
+									"type": "String"
+								},
+								"sink": {
+									"name": "InsCoverageOrder",
+									"type": "Int32"
+								}
+							},
+							{
+								"sink": {
+									"name": "IspaceAppointmentInsertDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"sink": {
+									"name": "IspaceAppointmentUpdateDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"sink": {
+									"name": "AppointmentSubmittedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"sink": {
+									"name": "AppointmentQaDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"sink": {
+									"name": "AppointmentWritebackDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"sink": {
+									"name": "AppointmentChangeReason",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "WriteBackStatus",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "WriteBackMessage",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "WriteBackLogFile",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "isExcludeToWriteBack",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "Patient_Street",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Patient_Street",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Patient_Street2",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Patient_Street2",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Patient_City",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Patient_City",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Patient_State",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Patient_State",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Patient_Zip",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Patient_Zip",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Patient_Phone",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Patient_Phone",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Patient_Phone_Ext",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Patient_Phone_Ext",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Patient_Phone_Work",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Patient_Phone_Work",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Patient_Phone_Other",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Patient_Phone_Other",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "pri_sec_ter_qua",
+									"type": "String"
+								},
+								"sink": {
+									"name": "pri_sec_ter_qua",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Client_InsertDate",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Client_InsertDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"sink": {
+									"name": "Client_UpdatedDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"sink": {
+									"name": "Client_InsuranceCompany",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "LastCheckDateTime",
+									"type": "String"
+								},
+								"sink": {
+									"name": "LastCheckDateTime",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "Provider_IsNonPerson",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Provider_IsNonPerson",
+									"type": "Boolean"
+								}
+							},
+							{
+								"sink": {
+									"name": "ClientStatus",
+									"type": "Boolean"
+								}
+							},
+							{
+								"sink": {
+									"name": "OrthoCoveredByGenDentist",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "IsInvisaligncovered",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "WriteBack_AppointmentNote",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "AppointmentWriteBackStatus",
+									"type": "String"
+								}
+							},
+							{
+								"sink": {
+									"name": "isOrphanAppointment",
+									"type": "Boolean"
+								}
+							},
+							{
+								"sink": {
+									"name": "PristinePlan_MasterID",
+									"type": "Int32"
+								}
+							},
+							{
+								"sink": {
+									"name": "IsBotLoad",
+									"type": "Boolean"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "TabDelimitedOnPremisesTextFile",
 						"type": "DatasetReference"
 					}
 				],
