@@ -2052,8 +2052,7 @@
 						"mappings": [
 							{
 								"sink": {
-									"name": "ClientID",
-									"type": "Int32"
+									"name": ""
 								}
 							},
 							{
