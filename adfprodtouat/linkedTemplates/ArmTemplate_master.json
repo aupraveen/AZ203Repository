@@ -43,6 +43,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'OnPrimSourceSQLLinkedService'"
 		},
+		"TextFileLinkedService_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'TextFileLinkedService'"
+		},
 		"ApptUATSourceLinkedService_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "praveena@ispace.com"
@@ -56,6 +60,14 @@
 			"defaultValue": "praveena@ispace.com"
 		},
 		"OnPrimSourceSQLLinkedService_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "praveena@ispace.com"
+		},
+		"TextFileLinkedService_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "E:\\ADF\\Source"
+		},
+		"TextFileLinkedService_properties_typeProperties_userId": {
 			"type": "string",
 			"defaultValue": "praveena@ispace.com"
 		},
@@ -113,6 +125,9 @@
 					"OnPrimSourceSQLLinkedService_password": {
 						"value": "[parameters('OnPrimSourceSQLLinkedService_password')]"
 					},
+					"TextFileLinkedService_password": {
+						"value": "[parameters('TextFileLinkedService_password')]"
+					},
 					"ApptUATSourceLinkedService_properties_typeProperties_userName": {
 						"value": "[parameters('ApptUATSourceLinkedService_properties_typeProperties_userName')]"
 					},
@@ -124,6 +139,12 @@
 					},
 					"OnPrimSourceSQLLinkedService_properties_typeProperties_userName": {
 						"value": "[parameters('OnPrimSourceSQLLinkedService_properties_typeProperties_userName')]"
+					},
+					"TextFileLinkedService_properties_typeProperties_host": {
+						"value": "[parameters('TextFileLinkedService_properties_typeProperties_host')]"
+					},
+					"TextFileLinkedService_properties_typeProperties_userId": {
+						"value": "[parameters('TextFileLinkedService_properties_typeProperties_userId')]"
 					}
 				}
 			},

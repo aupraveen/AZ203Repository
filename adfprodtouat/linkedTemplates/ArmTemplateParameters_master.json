@@ -32,6 +32,9 @@
 		"OnPrimSourceSQLLinkedService_password": {
 			"value": ""
 		},
+		"TextFileLinkedService_password": {
+			"value": ""
+		},
 		"ApptUATSourceLinkedService_properties_typeProperties_userName": {
 			"value": "praveena@ispace.com"
 		},
@@ -42,6 +45,12 @@
 			"value": "praveena@ispace.com"
 		},
 		"OnPrimSourceSQLLinkedService_properties_typeProperties_userName": {
+			"value": "praveena@ispace.com"
+		},
+		"TextFileLinkedService_properties_typeProperties_host": {
+			"value": "E:\\ADF\\Source"
+		},
+		"TextFileLinkedService_properties_typeProperties_userId": {
 			"value": "praveena@ispace.com"
 		},
 		"containerUri": {
