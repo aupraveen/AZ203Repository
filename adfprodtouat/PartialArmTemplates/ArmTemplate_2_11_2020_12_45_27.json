@@ -1,0 +1,413 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adfprodtouat"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy data1",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "SqlServerSource",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "SqlServerSink"
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "OfficeID",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "OfficeID",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeName",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OfficeName",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ClientID",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "ClientID",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeUID",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "OfficeUID",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "ParentOfficeID",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "ParentOfficeID",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "PCholderID",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "PCholderID",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeDB",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "OfficeDB",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeTINID",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "OfficeTINID",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "TechConnectID",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "TechConnectID",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeBrand",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OfficeBrand",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeStreet1",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OfficeStreet1",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeStreet2",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OfficeStreet2",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeCity",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OfficeCity",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeState",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OfficeState",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeZip",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OfficeZip",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeMainPhone",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OfficeMainPhone",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeMainPhoneExt",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OfficeMainPhoneExt",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeActiveFlag",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "OfficeActiveFlag",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeAliasName",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OfficeAliasName",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OfficeCode",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OfficeCode",
+											"type": "String"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "SourceSqlServerDataSet",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DestinationSqlServerDataSet",
+								"type": "DatasetReference"
+							}
+						]
+					},
+					{
+						"name": "Copy data From Text File To Database",
+						"type": "Copy",
+						"dependsOn": [
+							{
+								"activity": "Copy data1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "FileServerReadSettings",
+									"recursive": true,
+									"wildcardFolderPath": "E:\\ADF\\Source",
+									"wildcardFileName": "*.txt",
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink"
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "DataSource",
+											"type": "Int16"
+										},
+										"sink": {
+											"name": "DataSource",
+											"type": "Byte"
+										}
+									},
+									{
+										"source": {
+											"name": "APPTID",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "ApptID",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "APPTDB",
+											"type": "Int32"
+										},
+										"sink": {
+											"name": "ApptDB",
+											"type": "Int32"
+										}
+									},
+									{
+										"source": {
+											"name": "pri_sec_ter_qua",
+											"type": "String"
+										},
+										"sink": {
+											"name": "pri_sec_ter_qua",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LastCheckDateTime",
+											"type": "String"
+										},
+										"sink": {
+											"name": "LastCheckDateTime",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "Provider_IsNonPerson",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Provider_IsNonPerson",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "Client_InsertDate",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Client_InsertDate",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "Client_UpdateDate",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Client_UpdatedDate",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "Patient_Street",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Patient_Street",
+											"type": "String"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "TabDelimitedOnPremisesTextFile",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureApptDestDataSet",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": []
+		}
+	]
+}

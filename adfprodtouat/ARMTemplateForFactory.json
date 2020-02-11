@@ -393,6 +393,66 @@
 											"name": "ApptDB",
 											"type": "Int32"
 										}
+									},
+									{
+										"source": {
+											"name": "pri_sec_ter_qua",
+											"type": "String"
+										},
+										"sink": {
+											"name": "pri_sec_ter_qua",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LastCheckDateTime",
+											"type": "String"
+										},
+										"sink": {
+											"name": "LastCheckDateTime",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "Provider_IsNonPerson",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Provider_IsNonPerson",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "Client_InsertDate",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Client_InsertDate",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "Client_UpdateDate",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Client_UpdatedDate",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "Patient_Street",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Patient_Street",
+											"type": "String"
+										}
 									}
 								]
 							}
