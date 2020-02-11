@@ -3426,7 +3426,7 @@
 									},
 									{
 										"source": {
-											"name": "ApptDB",
+											"name": "APPTDB",
 											"type": "Int32"
 										},
 										"sink": {
