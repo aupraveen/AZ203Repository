@@ -9,6 +9,11 @@
 		"type": "SqlServerTable",
 		"schema": [
 			{
+				"name": "ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
 				"name": "ClientID",
 				"type": "int",
 				"precision": 10
