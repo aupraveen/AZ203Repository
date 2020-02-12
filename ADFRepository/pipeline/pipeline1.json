@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "OnPrem Copy Appointments from Source to Destination",
+				"name": "OnPrem Copy Appts from Source to Destination",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
